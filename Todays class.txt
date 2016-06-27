@@ -1,0 +1,169 @@
+27/06/2016 class
+-------------
+exec { "name":
+command => "sh script.sh",
+path => "/usr/bin:/bin:/usr/local/bin",
+timeout => 60,
+} 
+ 
+
+file_line { "name":
+line => "sh script.sh"
+path => "/etc/rc.local"
+}
+
+file_line { "name":
+line => "sh script.sh using our owns resources:",
+search => "using",
+path => "/var/spool/cron"
+
+}
+
+exec { "name":
+command => "sh script.sh",
+path => "/usr/bin:/usr/local/bin:/bin",
+cwd =>"/etc/puppet/modules/profile/files/",
+timeout => 60,
+} 
+
+exec { "name":
+command => "sh script.sh",
+path => "/usr/bin:/usr/local/bin:/bin",
+cwd =>"/etc/puppet/modules/profile/files/",
+timeout => 60,
+} 
+
+file {"/etc/resolv.conf"
+{
+content => source("/etc/puppet/modules/profile/files/script.sh"),
+}
+
+
+----------------------------
+Static files:
+
+files content will change
+files path  : /etc/puppet/modules/profile/files
+
+if organization has n number of environments 
+/etc/puppet/modules/profile/environment/QA/file1,file2
+/etc/puppet/modules/profile/environment/STG/file1,file2
+/etc/puppet/modules/profile/environment/UAT/file1,file2
+/etc/puppet/modules/profile/environment/PROD/file1,file2
+/etc/puppet/modules/profile/environment/SIT/file1,file2
+/etc/puppet/modules/profile/environment/E2E/file1,file3
+/etc/puppet/modules/profile/environment/PREPROD/file1,file3
+
+
+creating our own facter: 
+------------------------
+cat /etc/facter/facts.d 
+
+create a facts.d file in facter 
+
+create envionment.txt file with below content. 
+--------------
+envionment=stg
+
+
+if ($::environment==stg)
+{
+
+exec { "name":
+command => "sh script.sh",
+path => "/usr/bin:/usr/local/bin:/bin",
+cwd =>"/etc/puppet/modules/profile/environment/files//STG/file1",
+timeout => 60,
+} 
+                      
+---------------------------------------
+
+embedded ruby files
+--------------------
+json.erb
+conf.erb
+
+QA
+----
+if ($::environment==qa)
+file {/etc/resolv.conf":
+content => source(/etc/puppet/modules/profile/resolv.conf.erb",
+127.0.0.1
+Gateway 10.21.101.1
+
+
+STG
+----
+
+file:resolv.conf.erb 
+----------------
+127.0.0.1
+Gateway <%= @hostname>
+
+
+QA
+----
+
+resolv.conf.erb
+127.0.0.1
+Gateway 10.21.103.1
+
+
+/etc/puppet/modules/profile/templates/
+/resolv.conf.erb
+127.0.0.1
+hostname : "<%= @hostname>"
+Gateway 10.21.103.1
+
+
+/etc/resolv.conf
+
+
+-----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
