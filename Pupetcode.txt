@@ -1,0 +1,194 @@
+Step by step puppet code and execution
+---------------------------------------
+
+Yum install puppet 
+yum install puppet-3.6.1
+cd /etc/puppet
+
+if it is enterprise puppet version 
+cd /etc/puppetlabs/puppet
+
+depending version you will site.pp
+cd /etc/puppet/manifests/site.pp
+
+Manifests:
+what is manifests?
+Manifests contains resources and relationships
+
+Resource?
+All commands,services and configuration in linux operating system.
+
+
+Resource syntax:
+
+resource_type { "name":
+attribute => value
+}
+
+example:
+
+file { "/etc/test.txt":
+content => " this is test file",
+owner => root,
+mode => 755,
+}
+
+
+Relations ships:
+Puppet chaining using -> symbol
+and metaparameters like require,before,subscribe and notify
+
+
+Puppet class:
+
+Puppet class is allow us to write re-usable code.
+
+
+
+Simple manifest file:
+
+java.pp
+-------
+node default {
+
+include ::java( this java folder should be in the /etc/puppet/module)
+}
+
+
+using our owns resources:
+
+java.pp
+------
+node default {
+
+exec { "installing_java":
+command => "yum install java-1.8.0-openjdk-devel",
+path => "/usr/bin:/usr/local/bin:/bin",
+}
+}
+
+
+Puppet does not maintain the order if we write more than one resources 
+we will write puppet chaining using ->
+
+
+ 
+example:
+This file should be in /etc/puppet/manifests/jenkins.pp
+
+jenkins.pp
+----------
+node default {
+
+exec { "wgetjenkins":
+command => "wget jenkins.repo",
+path => "/usr/bin:/usr/local/bin:/bin",
+}
+
+exec { "rpmimportkey":
+command => "rpt keyname"<
+path => "/usr/bin:/usr/local/bin:bin",
+}
+
+
+exec { "yuminstalljenkins":
+command => "yum install jenkins",
+path => "/usr/bin:/usr/local/bin:/bin",
+}
+
+}
+
+
+command to run the puppet:
+
+pupet apply -v /etc/puppet/manifests/jenkins.pp
+
+
+In this case, puppet may execute any resource if it executes "yuminstalljenkins" first puppet 
+installation will be failed because it does not have rpm and tarball"
+
+
+so we will give puppet chaining here to maintain the order of execution.
+
+jenkins.pp
+----------
+node default {
+
+exec { "wgetjenkins":
+command => "wget jenkins.repo",
+path => "/usr/bin:/usr/local/bin:/bin",
+} ->
+
+exec { "rpmimportkey":
+command => "rpt keyname"<
+path => "/usr/bin:/usr/local/bin:bin",
+} -> 
+
+
+exec { "yuminstalljenkins":
+command => "yum install jenkins",
+path => "/usr/bin:/usr/local/bin:/bin",
+}
+
+}
+
+if resources are more and to maintain dependency we will use metaparameters
+require 
+
+node default {
+
+exec { "yuminstalljenkins":
+command => "yum install jenkins",
+path => "/usr/bin:/usr/local/bin:/bin",
+require => Exec["rpmimportkey"],
+}
+
+exec { "wgetjenkins":
+command => "wget jenkins.repo",
+path => "/usr/bin:/usr/local/bin:/bin",
+} 
+
+exec { "rpmimportkey":
+command => "rpt keyname",
+path => "/usr/bin:/usr/local/bin:bin",
+require => Exec["wgetjenkins"]
+} 
+
+}
+
+
+To validate the puppet files:
+puppet parser validate puppetppfiles
+
+
+Hiera.yaml
+Hiera.yaml file is for loop up the data with in the puppet directories.
+
+Hiera.yaml should be in /etc/puppet path
+
+Hiera.yaml
+---------
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: "/etc/puppet/%{::environment}/hieradata/"   "this directory has role yaml files"
+:hierarchy:
+  - %{::environment}"
+
+
+
+
+
+
+QA yaml file will be: /etc/puppet/environment/hieradata/QA/
+STG "/etc/puppet/environment/hieradata/STG
+PREPROD "/etc/puppet/environment/hieradata/PREPROD
+
+
+
+
+
+
+
+
