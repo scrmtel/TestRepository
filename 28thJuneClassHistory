@@ -1,0 +1,238 @@
+ gem install librarian-puppet
+  695  librarian-puppet init
+  696  librarian-puppet install
+  697  librarian-puppet show
+  698  cd .
+  699  cd modules
+  700  librarian-puppet show
+  701  librarian-puppet install
+  702  gem install librarian-puppet
+  703  ls
+  704  librarian-init
+  705  find / -name librarian-puppet
+  706  cd /usr/local/bin/librarian-puppet
+  707  cd /usr/local/bin/
+  708  librarian-puppet init
+  709  ./librarian-puppet init
+  710  cd create
+  711  cat create
+  712  cat Puppetfile
+  713  ls
+  714  cd ..
+  715  cd bin
+  716  ./librarian-puppet show
+  717  ./librarian-puppet install
+  718  git clone telmerobert/puppetlabs-java
+  719  puppet apply -v /etc/puppet/manifests/site.pp
+  720  git clone https://github.com/telmerobert/puppetlabs-java.git
+  721  ls
+  722  cd puppetlabs-java/
+  723  ls
+  724  cd ..
+  725  ls
+  726  ./librarian-puppet install
+  727  ./librarian-puppet installcd ..
+  728  vi metadata.json
+  729  ./librarian-puppet installcd ..
+  730  ./librarian-puppet install
+  731  ls
+  732  cat Puppetfile.lock
+  733  ./librarian-puppet show
+  734  ./librarian-puppet showlibrarian-puppet config
+  735  librarian-puppet config
+  736  puppet apply -v /etc/puppet/manifests/site.pp
+  737  cd /etc/puppet/modules
+  738  ls
+  739  librarian-puppet init
+  740  ibrarian-puppet install -
+  741  cd /usr/local/bin
+  742  ls
+  743  export PATH=$PATH:/usr/bin/
+  744  cd /etc/puppet
+  745  librarian-puppet
+  746  ./librarian-puppet show
+  747  cd /usr/bin
+  748  ls
+  749  cd /usr/local/bin
+  750  ls
+  751  export PATH=$PATH:/usr/local/bin
+  752  cd /etc/puppet
+  753  librarian-puppet show
+  754  cd modules
+  755  librarian-puppet install
+  756  librarian-puppet init
+  757  create
+  758  puppet apply -v /etc/puppet/manifests/site.pp
+  759  ls
+  760  cat puppetfile
+  761  cat Puppetfile
+  762  vi Puppetfile
+  763  puppet apply -v /etc/puppet/manifests/site.pp
+  764  ls
+  765  cat Puppetfile
+  766  wq
+  767  librarian-puppet show
+  768  librarian-puppet install
+  769  librarian-puppet install --clean
+  770  ls
+  771  cd ..
+  772  librarian-puppet init
+  773  vi Puppetfile
+  774  puppet apply -v /etc/puppet/manifests/site.pp
+  775  librarian-puppet install --clean
+  776  vi Puppetfile
+  777  ls
+  778  cd modules
+  779  ls
+  780  cd ..
+  781  rm -rf modules
+  782  librarian-puppet init
+  783  vi Puppetfile
+  784  puppet apply -v /etc/puppet/manifests/site.pp
+  785  vi /etc/puppet/manifests/jenkinstest.pp
+  786  puppet parser validate /etc/puppet/manifests/jenkinstest.pp
+  787  puppet apply -v /etc/puppet/manifests/jenkinstest.pp
+  788  vi /etc/puppet/manifests/jenkinstest.pp
+  789  service jenkins start
+  790  rm -rf /etc/yum.repos.d/jenkins.repo
+  791  puppet apply -v /etc/puppet/manifests/jenkinstest.pp
+  792  rm -rf /etc/yum.repos.d/jenkins.repo
+  793  vi /etc/puppet/manifests/jenkinstest.pp
+  794  rm -rf /etc/yum.repos.d/jenkins.repo
+  795  puppet parser validate /etc/puppet/manifests/jenkinstest.pp
+  796  puppet apply -v /etc/puppet/manifests/jenkinstest.pp
+  797  vi /etc/puppet/manifests/jenkinstest.pp
+  798  puppet apply -v /etc/puppet/manifests/jenkinstest.pp
+  799  ls
+  800  vi /etc/puppet/manifests/jenkinstest.pp
+  801  cd /etc/puppet/modules
+  802  ls
+  803  pwd
+  804  cd /etc/puppet
+  805  ls
+  806  mkdir modules
+  807  cd modules
+  808  puppet module install puppetlabs-java
+  809  cd java
+  810  ls
+  811  cd manifests
+  812  ls
+  813  cat params.pp
+  814  ls
+  815  cat init.pp
+  816  cd ..
+  817  puppet module install puppetlabs-mysql
+  818  cd mysql
+  819  ls
+  820  cd manifests
+  821  ls
+  822  cat server.pp
+  823  gem install librarian-puppet
+  824  gem install puppet-lint
+  825  cd /usr/local
+  826  ls
+  827  ls -a
+  828  cd bin
+  829  ls
+  830  service docker start
+  831  docker pull jenkins
+  832  docker run --rm -it -p 8081:8081 jenkins
+  833  curl http://52.41.177.57:8081/
+  834  curl http://52.41.177.57:8082/
+  835  dokcer ps
+  836  docker ps
+  837  service jenkins tstart
+  838  service jenkins start
+  839  curl http://127.0.0.1:8080
+  840  curl https://127.0.0.1:8080
+  841  yum install telnert
+  842  yum install telnet
+  843  telnet 127.0.0.1 8080
+  844  telnet 127.0.0.1 8081
+  845  docker exec service jenkins start
+  846  docker ps
+  847  docker exec jenkins restart
+  848  docker exec e60ca0d34874 restart
+  849  docker exec jenkins start
+  850  docker run --name myjenkins -p 8081:8081 jenins
+  851  docker run --name myjenkins -p 8081:8081 jenkins
+  852  docker run --name myjenkins -p 8082:8082 jenkins
+  853  docker run --name myjenkin -p 8082:8082 jenkins
+  854  gem install librarian-puppet
+  855  find / -name librarian*
+  856  librarian-puppet init
+  857  /usr/local/bin/librarian-puppet
+  858  librarian-puppet init
+  859  cd /usr/local/bin
+  860  ls
+  861  ./librarian-puppet init
+  862  cat Puppetfile
+  863*
+  864  git --version
+  865  vi Puppetfile
+  866  cp Puppetfile Puppetfile.as
+  867  cp Puppetfile Puppetfile.ci
+  868  cp Puppetfile Puppetfile.db
+  869  ls
+  870  vi Puppetfile.as
+  871  vi Puppetfile.db
+  872  vi Puppetfile.ci
+  873  ls
+  874  git init
+  875  ls
+  876  git status
+  877  git add .
+  878  git commit -m "ading files"
+  879  git status
+  880  git remote add kelly https://github.com/telmerobert/KellyDevops.git
+  881  git remote -v
+  882  git push origin master
+  883  git branch -a
+  884  git push kelly
+  885  git pull
+  886  git pull kelly
+  887  git brach -a
+  888  git branch -a
+  889  git status
+  890  ls
+  891  ls
+  892  git pull kelly master
+  893  git status
+  894  ls
+  895  git status
+  896  git branch -a
+  897  git pull kelly master
+  898  git pull origin master
+  899  git status
+  900  ls
+  901  cd modules
+  902  ls
+  903  cd ..
+  904  rm -rf modules
+  905  ls
+  906  git status
+  907  git pull kelly master
+  908  git status
+  909  ls
+  910  git branch -a
+  911  git push kelly master
+  912  git status
+  913  ls
+  914  puppet apply -v /etc/puppet/manifests/site.pp
+  915  cd /etc/puppet
+  916  ls
+  917  cat hiera.yaml
+  918  vi /etc/puppet/modules/role/manifests/as.pp
+  919  wget https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip
+  920  ls
+  921  unzip terraform_0.6.16_linux_amd64.zip
+  922  yum install unzip
+  923  unzip terraform_0.6.16_linux_amd64.zip
+  924  ls
+  925  ./terraform show
+  926  ./terraform plan
+  927  ./init.sh --role db --env stg
+  928  history
+  929  vi ~/.bash_history
+  930  history
+[root@ip-172-31-16-68 puppet]#
