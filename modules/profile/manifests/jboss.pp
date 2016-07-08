@@ -1,5 +1,0 @@
-node deafult {
-
-include ::jboss
-
-}

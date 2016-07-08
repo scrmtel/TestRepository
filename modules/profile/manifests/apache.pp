@@ -1,6 +1,0 @@
-node default {
-
-include ::httpd
-}
-
-
